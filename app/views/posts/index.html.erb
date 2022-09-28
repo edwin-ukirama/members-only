@@ -1,0 +1,14 @@
+<%= render "layouts/navbar" %>
+<div class="container py-5">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+    <h1>Posts</h1>
+    <%= link_to "Create New Post", new_post_path, class: "btn btn-primary"%>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 ">
+        <% @posts.each do |post| %>
+            <div class="col">
+                <%= render "card", post: post %>
+            </div>
+        <% end %>
+    </div>
+</div>

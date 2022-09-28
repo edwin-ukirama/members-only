@@ -1,0 +1,22 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= post.title %></h5>
+    <% if user_signed_in?%>
+      <h6 class="card-subtitle mb-2 text-muted">
+        <%= post.user.email %>
+      </h6>
+    <% end %>
+
+    <p class="card-text text-te"><%= post.content %></p>
+
+    <% if user_signed_in? %>
+
+      <a href="<%= edit_post_path(post.id) %>" class="card-link">Edit</a>
+      <%= button_to "Delete", post_path(post.id), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+    }, class: "card-link" %>
+
+    <% end %>
+  </div>
+</div>
